@@ -11,8 +11,157 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Variables */
+  --container-width: 540px;
+  --password-height: 80px;
+  --button-height: 65px;
+  --strength-indicator-height: 72px;
+  --generator-height: 528px;
+
+  /* Colors */
+  --grey-850: #18171F;
+  --grey-800: #24232C;
+  --grey-700: #54535B;
+  --grey-600: #817D92;
+  --grey-200: #E6E5EA;
+  --green-200: #A4FFAF;
+
+  
+  /* Typography - JetBrains Mono Bold */
+  --font-jetbrains: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: var(--font-jetbrains);
+}
+/* Utility Classes */
+.flex{
+  display: flex;
+}
+.align-self-start{
+  align-self: flex-start;
+}
+.flex-column{
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.space-between {
+  justify-content: space-between;
+}
+.text-upper{
+  text-transform: uppercase;
+}
+.justify-center{
+  justify-content: center;
+}
+.text-green-200{
+  color: var(--green-200);
+}
+.text-grey-200{
+  color: var(--grey-200);
+}
+.text-grey-700{
+  color: var(--grey-700);
+}
+.text-grey-600{
+  color: var(--grey-600);
+}
+.text-grey-800{
+  color: var(--grey-800);
+}
+.bg-green-200{
+  background-color: var(--green-200);
+}
+.bg-grey-850{
+  background-color: var(--grey-850);
 }
 
+/* Typography Preset Classes */
+.text-preset-1 {
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+}
+
+.text-preset-2 {
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.text-preset-3 {
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.text-preset-4 {
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.container{
+  width: min(90vw, var(--container-width));
+  margin: auto;
+}
+.password{
+  width: 100%;
+  padding: 19px 32px;
+  margin-top: 32px;
+  height: var(--password-height);
+  background-color: var(--grey-800);
+  margin-bottom: 24px;
+}
+.strength-indicator{
+  gap: 8px;
+}
+.strength-bar{
+  width: 10px;
+  height: 28px;
+  border: 2px solid var(--grey-200);
+}
+.generator{
+  padding: 24px 32px;
+  width: 100%;
+  height: var(--generator-height);
+  background-color: var(--grey-800);
+}
+.generator button {
+  width: 100%;
+  margin: 20.5px auto;
+  height: var(--button-height);
+  gap: 24px;
+}
+.generator ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  gap: 16px;
+  margin-top: 32px;
+}
+.generator ul li input{
+  margin-right: 24px;
+}
+.generator-strength{
+  height: var(--strength-indicator-height);
+  padding: 22px 31.5px;
+  margin-top: 32px;
+}
+.generator-controls{
+  gap: 16px;
+}
+.generator-controls label{
+  width: 100%;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -36,7 +185,6 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;

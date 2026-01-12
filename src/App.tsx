@@ -1,33 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import copy from './assets/copy-icon.svg';
+import arrowRight from './assets/arrow-right.svg';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container'>
+        <h1 className='text-preset-2 text-grey-600'>Password Generator</h1>
+
+        <div className="password flex space-between align-center">
+          <div className='text-preset-1 text-grey-700'>P4$5WOrd!</div>
+          <img src={copy} alt="Copy password" />
+        </div>
+
+        <div className="generator">
+
+          <div className="generator-controls flex flex-column">
+            <label htmlFor="length" className='align-self-start flex space-between align-center text-preset-3 text-grey-200'>
+              <span>Character Length</span>
+              <span className='text-preset-1 text-green-200'>0</span>
+            </label>
+            <input type="range" name="length" id="length" min="0" max="20" step="1" />
+          </div>
+
+          <ul className='flex flex-column'>
+            <li>
+              <input type="checkbox" name="uppercase" id="uppercase" />
+              <label htmlFor="uppercase">Include uppercase letters</label>
+            </li>
+            <li>
+              <input type="checkbox" name="lowercase" id="lowercase" />
+              <label htmlFor="lowercase">Include lowercase letters</label>
+            </li>
+            <li>
+              <input type="checkbox" name="numbers" id="numbers" />
+              <label htmlFor="numbers">Include numbers</label>
+            </li>
+            <li>
+              <input type="checkbox" name="special" id="special" />
+              <label htmlFor="special">Include special characters</label>
+            </li>
+          </ul>
+
+          <div className="generator-strength bg-grey-850 flex space-between align-center">
+            <div className='text-preset-3 text-grey-600 text-upper'>Strength</div>
+            <div className="strength-indicator flex space-between align-center">
+              <div className="strength-bar bg-grey-700"></div>
+              <div className="strength-bar bg-grey-700"></div>
+              <div className="strength-bar bg-grey-700"></div>
+              <div className="strength-bar bg-grey-700"></div>
+            </div>
+          </div>
+
+          <button className='text-preset-3 flex align-center justify-center text-grey-800 bg-green-200 text-upper'>
+            <span>Generate</span>
+            <img src={arrowRight} alt="Generate password" />
+          </button>
+
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
