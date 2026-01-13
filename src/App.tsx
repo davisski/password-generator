@@ -1,9 +1,21 @@
+import { useState } from 'react';
 import './App.css'
 import copy from './assets/copy-icon.svg';
 import arrowRight from './assets/arrow-right.svg';
-
+import { CheckboxComponent } from './components/CheckboxComponent';
 function App() {
-  
+  const [strengthIncludes, setStrengthIncludes] = useState<
+    { type: string; text: string }[]
+  >(
+    () => {
+      return [
+          { type: 'uppercase', text: 'Include Uppercase Letters' },
+          { type: 'lowercase', text: 'Include Lowercase Letters' },
+          { type: 'numbers', text: 'Include Numbers' },
+          { type: 'symbols', text: 'Include Symbols' },
+        ]
+    }
+  );
 
   return (
     <>
@@ -25,24 +37,11 @@ function App() {
             <input type="range" name="length" id="length" min="0" max="20" step="1" />
           </div>
 
-          <ul className='flex flex-column'>
-            <li>
-              <input type="checkbox" name="uppercase" id="uppercase" />
-              <label htmlFor="uppercase">Include uppercase letters</label>
-            </li>
-            <li>
-              <input type="checkbox" name="lowercase" id="lowercase" />
-              <label htmlFor="lowercase">Include lowercase letters</label>
-            </li>
-            <li>
-              <input type="checkbox" name="numbers" id="numbers" />
-              <label htmlFor="numbers">Include numbers</label>
-            </li>
-            <li>
-              <input type="checkbox" name="special" id="special" />
-              <label htmlFor="special">Include special characters</label>
-            </li>
-          </ul>
+          <div className='flex flex-column checkbox-container'>
+            {strengthIncludes.map((type) => (
+              <CheckboxComponent key={type.type} type={type} />
+            ))}
+          </div>
 
           <div className="generator-strength bg-grey-850 flex space-between align-center">
             <div className='text-preset-3 text-grey-600 text-upper'>Strength</div>
