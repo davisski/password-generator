@@ -20,6 +20,7 @@
   --generator-height: 528px;
 
   /* Colors */
+  --grey-950: #08070B;
   --grey-850: #18171F;
   --grey-800: #24232C;
   --grey-700: #54535B;
@@ -140,16 +141,16 @@
   height: var(--button-height);
   gap: 24px;
 }
-.generator ul {
-  list-style-type: none;
+.checkbox-container {
   padding: 0;
   margin: 0;
   text-align: left;
   gap: 16px;
   margin-top: 32px;
 }
-.generator ul li input{
-  margin-right: 24px;
+.checkbox {
+  gap: 24px;
+  cursor: pointer;
 }
 .generator-strength{
   height: var(--strength-indicator-height);
@@ -177,6 +178,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--grey-950);
 }
 
 h1 {
