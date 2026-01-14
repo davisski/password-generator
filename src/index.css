@@ -163,6 +163,43 @@
 .generator-controls label{
   width: 100%;
 }
+.range{
+  position: relative;
+}
+.range-thumb{
+  height: 28px;
+  width: 28px;
+  border-radius: 100%;
+  background: var(--grey-200);
+  cursor: pointer;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%);
+}
+
+.range-thumb.active{
+  background: var(--grey-850);
+  border: 2px solid var(--grey-200);
+  border-color: var(--green-200);
+}
+.range-track{
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: var(--grey-850);
+  z-index: 0;
+  position: absolute;
+}
+.range-progress{
+  height: 8px;
+  cursor: pointer;
+  background: var(--green-200);
+  z-index: 1;
+  left: 0%;
+  position: absolute;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
