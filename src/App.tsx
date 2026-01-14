@@ -3,6 +3,8 @@ import './App.css'
 import copy from './assets/copy-icon.svg';
 import arrowRight from './assets/arrow-right.svg';
 import { CheckboxComponent } from './components/CheckboxComponent';
+import { RangeComponent } from './components/RangeComponent';
+
 function App() {
   const [strengthIncludes, setStrengthIncludes] = useState<
     { type: string; text: string }[]
@@ -34,7 +36,7 @@ function App() {
               <span>Character Length</span>
               <span className='text-preset-1 text-green-200'>0</span>
             </label>
-            <input type="range" name="length" id="length" min="0" max="20" step="1" />
+            <RangeComponent />
           </div>
 
           <div className='flex flex-column checkbox-container'>
